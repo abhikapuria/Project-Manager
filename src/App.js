@@ -69,14 +69,26 @@ class App extends Component {
 
   handleDeleteProject(id) {
     let projects = this.state.projects;
-    let index = projects.findIndex(x => x.id === id);
+    let index;
+    for(let i = 0; i< projects.length; i++){
+      if(projects[i].id === id){
+        index = i;
+        break;
+      }
+    }
     projects.splice(index, 1);
     this.setState({ projects: projects });
   }
 
   handleDeleteTodoItem(id){
     let todos = this.state.todos;
-    let index = todos.findIndex(x => x.id === id);
+    let index;
+    for(let i = 0; i< todos.length; i++){
+      if(todos[i].id === id){
+        index = i;
+        break;
+      }
+    }
     todos.splice(index, 1);
     this.setState({todos: todos});
   }
